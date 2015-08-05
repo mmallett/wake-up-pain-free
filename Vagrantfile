@@ -6,16 +6,14 @@ VAGRANTFILE_API_VERSION = "2"
 
 $bootstrap = <<SCRIPT
 apt-get update
-apt-get install -y apache2 vim wget git
+apt-get install -y apache2 vim wget git curl
 rm -rf /var/www
 ln -fs /vagrant /var/www
 
-apt-get install -y nodejs build-essential npm
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+apt-get install -y nodejs build-essential
 
 npm install bower -g
-npm install less -g
-
-bower install
 
 SCRIPT
 
